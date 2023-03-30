@@ -1,4 +1,4 @@
 .env
 node_modules
-Connect.js
+dbconfig.js
 test.js
