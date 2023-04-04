@@ -29,6 +29,9 @@ function apiRequest() {
   request(options, (err, res, body) => {
     console.log(body)
     var apiJson = JSON.stringify(body)
+    apiJson.toString();
+    apiJson.replace('+', ' ')
+    //console.log(apiJson)
     fs.writeFileSync('api.json',apiJson)
   })
   pageno += 1;
