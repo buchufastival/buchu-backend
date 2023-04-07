@@ -3,8 +3,9 @@ const fs = require('fs')
 const app = express();
 const request = require('request')
 const mysql = require('mysql')
+const apidata = require('./api.json')
 require('dotenv').config();
-
+var apiJson = "";
 var pageno = 1;
 
 const options = {
@@ -21,18 +22,22 @@ const options = {
 
 app.get('/', (req,res) => {
   apiRequest();
-
+  res.send(apidata)
 })
 
-
-function apiRequest() {
+const apiRequest = () => {
   request(options, (err, res, body) => {
-    console.log(body)
-    var apiJson = JSON.stringify(body)
-    apiJson.toString();
+    //console.log(body)
+    apiJson = JSON.stringify(body)
     apiJson.replace('+', ' ')
+    apiJson.replace('/\n/g', ' ')
     //console.log(apiJson)
     fs.writeFileSync('api.json',apiJson)
   })
   pageno += 1;
+  
 }
+
+app.listen(8080, () => {
+  console.log('http://localhost:8080')
+})
