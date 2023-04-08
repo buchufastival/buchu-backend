@@ -20,9 +20,9 @@ const options = {
   }
 }
 
-app.get('/', (req,res) => {
+app.get('/get/api', (req,res) => {
   apiRequest();
-  res.send(apidata)
+  //res.send(apidata)
 })
 
 const apiRequest = () => {
@@ -38,6 +38,6 @@ const apiRequest = () => {
   
 }
 
-app.listen(8080, () => {
-  console.log('http://localhost:8080')
+app.listen(8035, () => {
+  console.log('http://localhost:8035')
 })
