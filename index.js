@@ -19,16 +19,16 @@ connection.connect(
 );
 
 app.get('/', (req,res) => {
-    res.send('/')
+    res.send('/ page')
     console.log('/ page')
 })
 
 app.get('/admin', (req,res) => {
   res.send('admin page')
+  console.log('admin page')
 })
 
 app.get('/fastivals/:pageNo', (req,res) => {
-  //console.log(req.params.pageNo)
   apiRequest(req.params.pageNo);
   res.send(apidata)
 })
