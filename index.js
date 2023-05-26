@@ -69,6 +69,7 @@ app.post('/newfastival', (req,res) => {
       if(err) throw err;
       console.log('succeed insert');
     })
+    res.send('succeed create')
 })
 
 app.delete('/deletefastival/:id', (req,res) => {
@@ -76,6 +77,7 @@ app.delete('/deletefastival/:id', (req,res) => {
     if(err) throw err;
     console.log('succeed delete');
   })
+  res.send('succeed delete')
 })
 
 const apiRequest = (pageNo) => {
